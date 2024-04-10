@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 const Landing = () => {
   return (
-    <div>
+    <div className='bg-black min-h-[100vh]'>
         <Navbar />
     </div>
   )
