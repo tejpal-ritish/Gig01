@@ -1,6 +1,6 @@
 import React from 'react'
-import ceo from '../../public/assets/ceo.png'
-import aboutUs from '../../public/assets/aboutUs.mp4'
+import ceo from '../../assets/ceo.png'
+import aboutUs from '../../assets/aboutUs.mp4'
 
 const Page2 = () => {
   return (

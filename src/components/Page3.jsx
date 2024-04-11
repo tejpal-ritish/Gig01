@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import gameOverview from '../../public/assets/gameOverview.mp4'
-import downArrow from '../../public/assets/downArrow.svg'
-import upArrow from '../../public/assets/upArrow.svg'
+import gameOverview from '../../assets/gameOverview.mp4'
+import downArrow from '../../assets/downArrow.svg'
+import upArrow from '../../assets/upArrow.svg'
 
 
 const Page3 = () => {
