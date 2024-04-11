@@ -1,6 +1,6 @@
 import React from 'react'
-import arrow from '../../public/assets/arrow.svg'
-import calendar from '../../public/assets/calendar.svg'
+import arrow from '../../assets/arrow.svg'
+import calendar from '../../assets/calendar.svg'
 
 const Navbar = () => {
   return (
