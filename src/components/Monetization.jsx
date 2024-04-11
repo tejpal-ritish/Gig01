@@ -22,9 +22,9 @@ const Monetization = () => {
             } else {
               clearInterval(interval); // Stop the interval after all borders are shown
             }
-          }, 500);
+          }, 250); // Interval of 250ms between each border appearance
 
-          // Cleanup observer and interval on unmount
+          // Cleanup observer and interval on unmount or when all borders are shown
           return () => {
             observer.disconnect();
             clearInterval(interval);
