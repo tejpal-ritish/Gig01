@@ -14,6 +14,8 @@ import LetsTalk from './LetsTalk'
 import Budget from './Budget'
 import Monetization from './Monetization'
 import OurTeam from './OurTeam'
+import MarketResearch from './MarketResearch'
+import Milestones from './Milestones'
 
 const Landing = () => {
   return (
@@ -23,6 +25,11 @@ const Landing = () => {
         <Page2 />
         <Page3 />
         <Page4 />
+        <MarketResearch />
+        <Milestones />
+        <OurTeam />
+        <Monetization />
+        <Budget />
         <Page5 />
         <Page6 />
         <Page7 />

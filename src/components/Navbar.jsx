@@ -4,7 +4,7 @@ import calendar from '../../assets/calendar.svg'
 
 const Navbar = () => {
   return (
-    <div className=' tracking-wider font-light justify-between flex bg-white p-3 px-8 items-center fixed top-0 w-full'>
+    <div className=' tracking-wider font-light justify-between flex  bg-white p-3 px-8 items-center fixed top-0 w-full z-10'>
         <div className=''>
             <h1 className='font-semibold text-sm '>Gaming Pitch deck</h1>
         </div>

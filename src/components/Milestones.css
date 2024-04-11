@@ -1,0 +1,24 @@
+/* Milestones.css */
+
+.highlighted {
+    background-color: #FAFAFA;
+    color: #000000;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition for background color and text color */
+}
+
+.blue-highlighted {
+    color: #0B5B5A;
+
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition for background color and text color */
+}
+
+/* Milestones.css */
+/* Milestones.css */
+
+.custom-timeline-connector {
+    width: 2px; /* Adjust width of the connector line */
+    height: 100%; /* Make the connector line stretch vertically */
+    background-color: transparent; /* Ensure background is transparent */
+    border: none; /* Remove any default border */
+    /* border-left: 1px dashed #FAFAFA; Apply dashed border style with desired color */
+}
