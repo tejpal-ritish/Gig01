@@ -9,6 +9,7 @@ import Page5 from './Page5'
 import Page6 from './Page6'
 import Page7 from './Page7'
 import Page8 from './Page8'
+import TargetAudience from './TargetAudience'
 import LetsTalk from './LetsTalk'
 import Budget from './Budget'
 import Monetization from './Monetization'
@@ -22,13 +23,14 @@ const Landing = () => {
         <Page2 />
         <Page3 />
         <Page4 />
-        <OurTeam />
-        <Monetization />
-        <Budget />
         <Page5 />
         <Page6 />
         <Page7 />
         <Page8 />
+        <TargetAudience />
+        <OurTeam />
+        <Monetization />
+        <Budget />
         <LetsTalk />
     </div>
   )
