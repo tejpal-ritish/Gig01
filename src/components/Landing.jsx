@@ -8,6 +8,7 @@ import Page4 from './Page4'
 import LetsTalk from './LetsTalk'
 import Budget from './Budget'
 import Monetization from './Monetization'
+import OurTeam from './OurTeam'
 
 const Landing = () => {
   return (
@@ -17,6 +18,7 @@ const Landing = () => {
         <Page2 />
         <Page3 />
         <Page4 />
+        <OurTeam />
         <Monetization />
         <Budget />
         <LetsTalk />

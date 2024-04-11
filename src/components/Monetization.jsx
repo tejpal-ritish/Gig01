@@ -31,7 +31,7 @@ const Monetization = () => {
           };
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     // Observe the component's ref
