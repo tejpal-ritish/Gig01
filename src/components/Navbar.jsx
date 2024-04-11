@@ -14,7 +14,7 @@ const Navbar = () => {
             </div>
             <div className='flex bg-black rounded text-[#FAFAFA] p-2 px-3 items-center gap-1'>
                 <img src={calendar} alt="" className='items-center size-[20%]'/>
-                <p className='text-sm font-semibold'>Let's talk</p>
+                <a href='mailto:test@mail.com' className='text-sm font-semibold'>Let's talk</a>
             </div>
         </div>
     </div>
