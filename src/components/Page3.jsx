@@ -5,7 +5,7 @@ import upArrow from '../../assets/upArrow.svg'
 
 
 const Page3 = () => {
-    const [readMore, setreadMore] = useState(false)
+    const [readMore, setreadMore] = useState(true)
   return (
 
     <div className='min-h-screen'>

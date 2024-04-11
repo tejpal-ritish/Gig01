@@ -6,6 +6,8 @@ import Page2 from './Page2'
 import Page3 from './Page3'
 import Page4 from './Page4'
 import LetsTalk from './LetsTalk'
+import Budget from './Budget'
+import Monetization from './Monetization'
 
 const Landing = () => {
   return (
@@ -15,6 +17,8 @@ const Landing = () => {
         <Page2 />
         <Page3 />
         <Page4 />
+        <Monetization />
+        <Budget />
         <LetsTalk />
     </div>
   )
