@@ -3,8 +3,8 @@ import landing from '../../assets/landing.mp4'
 
 const Page1 = () => {
   return (
-    <div className="min-h-screen flex flex-row justify-center items-center relative">
-        <video autoPlay loop muted className='w-[100%] min-h-full rounded-xl py-2 opacity-10'>
+    <div className="max-h-screen flex flex-row justify-center items-center relative">
+        <video autoPlay loop muted className='w-[100%] rounded-xl py-2 opacity-10'>
             <source src={landing} type='video/mp4'/>
         </video>
         <div className='absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center'>
