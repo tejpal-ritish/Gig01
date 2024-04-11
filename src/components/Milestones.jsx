@@ -1,81 +1,121 @@
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+import './Milestones.css'; // Import CSS file for component styles
 
 const Milestones = () => {
-    return (
-        <Timeline align="alternate" className='text-[#FAFAFA] text-xl min-h-screen'>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Eat</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-                <div className='flex flex-col max-w-[60%] mx-4 px-4 border-[#0B5B5A] border-2 rounded-lg py-6 gap-4'>
-                    <h1 className='font-light text-3xl'>Q1: Conceptualization and Design </h1>
-                    <p className='text-xl font-bold items-center'>(January 1 - March 31)</p>
-                    <ul className='items-center'>
-                        <li className='list-disc ml-5 px-2  text-xl'>Develop and finalize the game concept, including key gameplay mechanics and visual design.</li>
-                        <li className='list-disc ml-5 px-2 text-xl'>Create detailed concept art and design documents.</li>
-                        <li className='list-disc ml-5 px-2 text-xl'>Establish the core team roles and responsibilities.</li>
+    const milestoneRefs = useRef([]);
 
-                    </ul>
-                </div>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Sleep</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-            </TimelineSeparator>
-            <TimelineContent>Repeat</TimelineContent>
-          </TimelineItem>
-        </Timeline>
-      );
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = parseInt(entry.target.dataset.index);
+                    const h1Element = entry.target.querySelector('h1');
+
+                    if (h1Element) {
+                        if (index >= 0 && index <= 2) {
+                            h1Element.classList.add('highlighted'); // Apply highlight class for first three
+                        } else if (index >= 3 && index <= 4) {
+                            h1Element.classList.add('blue-highlighted'); // Apply blue highlight class for last two
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        milestoneRefs.current.forEach((ref) => {
+            observer.observe(ref);
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
+    return (
+        <div className="relative justify-center items-center min-h-screen">
+            <Timeline position="alternate" className='text-[#FAFAFA] text-xl'>
+                {milestonesData.map((milestone, index) => (
+                    <TimelineItem key={index}>
+                        <TimelineSeparator>
+                            <TimelineDot />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent
+                            ref={(el) => (milestoneRefs.current[index] = el)}
+                            className={index % 2 === 0 ? 'flex justify-start' : 'flex justify-end'}
+                            data-index={index}
+                        >
+                            <div className='max-w-[60%] mx-4 px-4 border-[#0B5B5A] border-2 flex flex-col rounded-lg py-6 gap-4 text-start'>
+                                <h1 className='font-light text-3xl'>
+                                    {milestone.title}
+                                </h1>
+                                <p className='text-xl font-bold items-center'>{milestone.period}</p>
+                                <ul className='items-center font-light'>
+                                    {milestone.tasks.map((task, idx) => (
+                                        <li key={idx} className='list-disc ml-5 px-2 text-xl'>{task}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </TimelineContent>
+                    </TimelineItem>
+                ))}
+            </Timeline>
+        </div>
+    );
 };
 
 export default Milestones;
 
-
-// const milestonesData = [
-//     {
-//       title: 'Title 1',
-//       items: ['List Item 1', 'List Item 2', 'List Item 3'],
-//       description: 'Description or details about this event.'
-//     },
-//     {
-//       title: 'Title 2',
-//       items: ['List Item A', 'List Item B', 'List Item C'],
-//       description: 'Description or details about this event.'
-//     }
-//   ];
-
-//   return (
-//     <div className='min-h-screen flex justify-center'>
-//         <div className='absolute border-dashed border-2 min-h-screen '></div>
-//         <div className='text-[#FAFAFA] flex  max-w-[50%] p-20 justify-center text-center'>
-//             <div className="h-[10px] w-[10px] rounded-full bg-gray-200 ">
-//                 <h1 className='px-10'>Hello World</h1>
-
-//             </div>
-//             <div></div>
-//         </div>
-//     </div>
-//   );
+const milestonesData = [
+    {
+        title: 'Q1: Conceptualization and Design',
+        period: '(January 1 - March 31)',
+        tasks: [
+            'Develop and finalize the game concept, including key gameplay mechanics and visual design.',
+            'Create detailed concept art and design documents.',
+            'Establish the core team roles and responsibilities.'
+        ]
+    },
+    {
+        title: 'Q2: Alpha Testing Phase',
+        period: '(April 1 - June 30)',
+        tasks: [
+            'Commence the development of the alpha version of VelocityX.',
+            'Conduct internal testing for core gameplay mechanics and features.',
+            'Collect feedback from a select group of testers for iterative improvements.'
+        ]
+    },
+    {
+        title: 'Q3: Beta Version Launch',
+        period: '(July 1 - September 30)',
+        tasks: [
+            'Release the beta version of VelocityX for a wider audience.',
+            'Gather feedback from beta testers to identify and address any remaining issues.',
+            'Initiate marketing and promotional activities to generate awareness.'
+        ]
+    },
+    {
+        title: 'Q4: Final Development and Optimization',
+        period: '(October 1 - December 31)',
+        tasks: [
+            'Implement final changes based on beta testing feedback.',
+            'Optimize game performance and address any technical issues.',
+            'Prepare for the global launch, including server infrastructure and distribution platforms.'
+        ]
+    },
+    {
+        title: 'Q1 (Following Year): Global Launch',
+        period: '(January 1 - March 31)',
+        tasks: [
+            'Officially launch VelocityX: Turbo Pursuit globally on multiple gaming platforms.',
+            'Execute a comprehensive marketing campaign to maximize visibility.',
+            'Monitor and respond to player feedback, releasing updates as necessary.'
+        ]
+    }
+];

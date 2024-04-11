@@ -1,0 +1,13 @@
+/* Milestones.css */
+
+.highlighted {
+    background-color: #FAFAFA;
+    color: #000000;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition for background color and text color */
+}
+
+.blue-highlighted {
+    color: #0B5B5A;
+
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition for background color and text color */
+}
