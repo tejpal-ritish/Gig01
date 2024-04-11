@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import './Milestones.css'; // Import CSS file for component styles
+import './Milestones.css';
 
 const Milestones = () => {
     const milestoneRefs = useRef([]);
@@ -19,9 +19,9 @@ const Milestones = () => {
 
                     if (h1Element) {
                         if (index >= 0 && index <= 2) {
-                            h1Element.classList.add('highlighted'); // Apply highlight class for first three
+                            h1Element.classList.add('highlighted');
                         } else if (index >= 3 && index <= 4) {
-                            h1Element.classList.add('blue-highlighted'); // Apply blue highlight class for last two
+                            h1Element.classList.add('blue-highlighted');
                         }
                     }
                 }
@@ -38,35 +38,75 @@ const Milestones = () => {
     }, []);
 
     return (
-        <div className="relative justify-center items-center min-h-screen">
+        <div className="flex flex-col relative justify-start md:justify-center md:items-center md:min-h-screen">
             <h1 className='text-center text-4xl font-bold text-[#FAFAFA] py-10'>Milestones</h1>
-            <Timeline position="alternate" className='text-[#FAFAFA] text-xl'>
-                {milestonesData.map((milestone, index) => (
-                    <TimelineItem key={index}>
-                        <TimelineSeparator>
-                            <TimelineDot />
-                            <CustomTimelineConnector /> {/* Use custom connector component */}
-                        </TimelineSeparator>
-                        <TimelineContent
-                            ref={(el) => (milestoneRefs.current[index] = el)}
-                            className={index % 2 === 0 ? 'flex justify-start' : 'flex justify-end'}
-                            data-index={index}
-                        >
-                            <div className='max-w-[60%] mx-4 px-4 border-[#0B5B5A] border-2 flex flex-col rounded-lg py-6 gap-4 text-start'>
-                                <h1 className='font-light text-3xl'>
-                                    {milestone.title}
-                                </h1>
-                                <p className='text-xl font-bold items-center'>{milestone.period}</p>
-                                <ul className='items-center font-light'>
-                                    {milestone.tasks.map((task, idx) => (
-                                        <li key={idx} className='list-disc ml-5 px-2 text-xl'>{task}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </TimelineContent>
-                    </TimelineItem>
-                ))}
-            </Timeline>
+            <div className='hidden xl:block w-full'>
+                <Timeline position="alternate" className='hidden md:block text-[#FAFAFA] md:text-xl'>
+                    {milestonesData.map((milestone, index) => (
+                        <TimelineItem key={index}>
+                            <TimelineSeparator>
+                                <TimelineDot />
+                                <CustomTimelineConnector /> {/* Use custom connector component */}
+                            </TimelineSeparator>
+                            <TimelineContent
+                                ref={(el) => (milestoneRefs.current[index] = el)}
+                                className={index % 2 === 0 ? 'flex justify-start' : 'flex md:justify-end'}
+                                data-index={index}
+                            >
+                                <div className='w-full max-w-[60%] mx-4 px-4 border-[#0B5B5A] border-2 flex flex-col rounded-lg py-6 gap-4 text-start'>
+                                    <h1 className='font-light text-3xl'>
+                                        {milestone.title}
+                                    </h1>
+                                    <p className='text-xl font-bold items-center'>{milestone.period}</p>
+                                    <ul className='items-center font-light'>
+                                        {milestone.tasks.map((task, idx) => (
+                                            <li key={idx} className='list-disc ml-5 px-2 text-xl'>{task}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </TimelineContent>
+                        </TimelineItem>
+                    ))}
+                </Timeline>
+            </div>
+            <div className='flex justify-center'>
+            <div className="xl:hidden w-[80%] lg:w-full">
+                <Timeline
+                    sx={{
+                        [`& .${timelineItemClasses.root}:before`]: {
+                            flex: 0,
+                            padding: 0,
+                        },
+                    }}
+                >
+                    {milestonesData.map((milestone, index) => (
+                        <TimelineItem key={index}>
+                            <TimelineSeparator>
+                                <TimelineDot />
+                                <CustomTimelineConnector /> {/* Use custom connector component */}
+                            </TimelineSeparator>
+                            <TimelineContent
+                                ref={(el) => (milestoneRefs.current[index] = el)}
+                                className={'flex justify-start text-[#FAFAFA] md:text-xl'}
+                                data-index={index}
+                            >
+                                <div className='w-full max-w-[80%] mx-4 px-4 border-[#0B5B5A] border-2 flex flex-col rounded-lg py-6 gap-4 text-start'>
+                                    <h1 className='font-light text-3xl'>
+                                        {milestone.title}
+                                    </h1>
+                                    <p className='text-xl font-bold items-center'>{milestone.period}</p>
+                                    <ul className='items-center font-light'>
+                                        {milestone.tasks.map((task, idx) => (
+                                            <li key={idx} className='list-disc ml-5 px-2 text-xl'>{task}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </TimelineContent>
+                        </TimelineItem>
+                    ))}
+                </Timeline>
+            </div>
+            </div>
         </div>
     );
 };

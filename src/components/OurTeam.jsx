@@ -48,10 +48,10 @@ const OurTeam = () => {
   }, []); // Empty dependency array to run effect only once on mount
 
   return (
-    <div ref={componentRef} className='min-h-screen flex justify-center items-center'>
+    <div ref={componentRef} className='min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex justify-center items-center'>
       <div className='w-[74%] text-xl font-light text-[#FAFAFA] items-center tracking-wider'>
         <h1 className='text-center text-4xl font-bold p-10'>Our Team</h1>
-        <div className='grid grid-cols-4 text-center gap-4'>
+        <div className='grid grid-cols-2 lg:grid-cols-4 text-center gap-4'>
           {images.map((image, index) => (
             <div key={index} className={`flex flex-col gap-2 transition-opacity duration-500 ${visibleIndex >= index ? 'opacity-100' : 'opacity-20'}`}>
               <img src={image} className='aspect-square object-cover rounded-full p-4' alt='' />

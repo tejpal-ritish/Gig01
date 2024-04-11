@@ -8,11 +8,11 @@ const Page3 = () => {
     const [readMore, setreadMore] = useState(true)
   return (
 
-    <div className='min-h-screen'>
-        <div className='flex justify-center text-[#FAFAFA] tracking-wider font-light text-xl py-10 mt-10'>
-            <div className='w-[45%]'>
+    <div className='md:min-h-screen'>
+        <div className='flex justify-center text-[#FAFAFA] tracking-wider font-light md:text-xl py-10 mt-10'>
+            <div className='md:w-[45%] w-[80%]'>
                 <div className='flex flex-col'>
-                    <h1 className='text-3xl  font-normal'>Game overview</h1>
+                    <h1 className='text-3xl  font-bold'>Game overview</h1>
                     <p className=' py-4'>Embark on a high-stakes, illicit street racing adventure in the neon-drenched metropolis of NexaCity. VelocityX delivers an exhilarating blend of breakneck speeds, intense rivalries, and breathtaking visuals. Set in a fictional world where every race is a story and every car has a personality, players will live on the edge of velocity and danger.</p>
                 </div>
                 <div className='flex gap-2 pb-4 cursor-pointer' onClick={(e) => {

@@ -39,9 +39,9 @@ const Budget = () => {
   return (
     <div className='min-h-[50vh] flex justify-center'>
       <div className='flex w-[90%] text-[#FAFAFA] tracking-wider font-light'>
-        <div className='flex items-center text-xl'>
-          <div className='flex flex-col w-[50%]'>
-            <h2 className='text-3xl py-4 font-normal'>Budget</h2>
+        <div className='flex flex-col lg:flex-row md:items-center items-center text-xl'>
+          <div className='flex flex-col w-[90%] lg:w-[50%] p-10 md:p-4'>
+            <h2 className='text-3xl py-4 font-normal lg:text-start text-center'>Budget</h2>
             <p>
               VelocityX:Turbo Pursuit envisions a $10 million budget to ensure a
               polished and engaging gaming experience. This includes a

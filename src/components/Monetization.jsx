@@ -79,7 +79,7 @@ const Monetization = () => {
           <div className='flex justify-center p-10'>
             <h1 className='text-5xl font-bold'>Monetization Strategy</h1>
           </div>
-          <div ref={componentRef} className='grid grid-cols-3 gap-8 text-xl p-10'>
+          <div ref={componentRef} className='grid grid-cols-1 2xl:grid-cols-3 gap-8 text-xl p-10'>
             {milestonesData.map((strategy, index) => (
               <div
                 key={index}

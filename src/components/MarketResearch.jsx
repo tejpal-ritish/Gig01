@@ -35,12 +35,12 @@ const MarketResearch = () => {
   ];
 
   return (
-    <div className='flex justify-center items-center min-h-screen'>
-      <div className='w-[70%] font-light text-[#FAFAFA] tracking-wider text-xl'>
-        <h1 className='text-center text-4xl font-bold p-20 items-center'>Market Research</h1>
-        <div className='flex flex-row gap-8 items-center'>
+    <div className='flex justify-center items-center md:min-h-[50vh] lg:min-h-screen'>
+      <div className='lg:w-[70%] font-light text-[#FAFAFA] tracking-wider md:text-xl'>
+        <h1 className='text-center text-4xl font-bold lg:p-20 p-10 items-center'>Market Research</h1>
+        <div className='flex lg:flex-row flex-col gap-8 items-center'>
           {/* Navigation Buttons */}
-            <div className='flex flex-col gap-2 max-w-[18%] '>
+            <div className='flex lg:flex-col gap-2 w-[80%] lg:max-w-[18%] '>
                 {sections.map((section, index) => (
                 <button
                     key={index}
@@ -56,7 +56,7 @@ const MarketResearch = () => {
 
           {/* Image */}
             {sections[curr] && (
-              <div className='flex w-[45%] rounded-lg h-[300px] items-center '>
+              <div className='hidden lg:flex w-[45%] rounded-lg h-[300px] items-center '>
                 <img
                   src={sections[curr].image}
                   alt={sections[curr].title}
@@ -66,7 +66,7 @@ const MarketResearch = () => {
             )}
           {/* Text */}
             {sections[curr] && (
-              <div className='max-w-[38%] flex flex-col items-center text-center'>
+              <div className=' w-[80%] lg:max-w-[38%] flex flex-col items-center text-center'>
                 <ul className='text-left items-center'>
                   {sections[curr].description.map((point, index) => (
                     <li key={index} className='py-2 list-disc'>
