@@ -39,12 +39,13 @@ const Milestones = () => {
 
     return (
         <div className="relative justify-center items-center min-h-screen">
+            <h1 className='text-center text-4xl font-bold text-[#FAFAFA] py-10'>Milestones</h1>
             <Timeline position="alternate" className='text-[#FAFAFA] text-xl'>
                 {milestonesData.map((milestone, index) => (
                     <TimelineItem key={index}>
                         <TimelineSeparator>
                             <TimelineDot />
-                            <TimelineConnector />
+                            <CustomTimelineConnector /> {/* Use custom connector component */}
                         </TimelineSeparator>
                         <TimelineContent
                             ref={(el) => (milestoneRefs.current[index] = el)}
@@ -71,6 +72,13 @@ const Milestones = () => {
 };
 
 export default Milestones;
+
+// Custom component for TimelineConnector with dashed border style
+const CustomTimelineConnector = () => {
+    return (
+        <TimelineConnector className="custom-timeline-connector" />
+    );
+};
 
 const milestonesData = [
     {
