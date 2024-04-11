@@ -36,7 +36,7 @@ const MarketResearch = () => {
 
   return (
     <div className='flex justify-center items-center min-h-screen'>
-      <div className='w-[90%] font-light text-[#FAFAFA] tracking-wider text-xl'>
+      <div className='w-[70%] font-light text-[#FAFAFA] tracking-wider text-xl'>
         <h1 className='text-center text-4xl font-bold p-20 items-center'>Market Research</h1>
         <div className='flex flex-row gap-8 items-center'>
           {/* Navigation Buttons */}
